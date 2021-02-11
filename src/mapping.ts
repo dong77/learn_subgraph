@@ -52,6 +52,18 @@ export function handleBlockSubmitted(event: BlockSubmitted):void {
   let id = event.params.blockIdx
   let idStr = zeroPad(id.toString(), 10)
   let block = new Block(idStr)
+  block.operator = event.transaction.from.toHex()
+  block.gasPrice = event.transaction.gasPrice
+  block.gasUsed = event.transaction.gasUsed
+  block.gasFee = block.gasPrice * block.gasUsed
+
+  block.blockHeight = event.block.number
+  block.blockTimestamp = event.block.timestamp
+  block.blockHash = event.block.hash.toHex()
+
+  block.blockIdx = event.params.blockIdx
+  block.merkleRoot = event.params.merkleRoot
+  block.publicDataHash = event.params.publicDataHash
   block.save()
 }
 

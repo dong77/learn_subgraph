@@ -108,6 +108,96 @@ export class Block extends Entity {
   set id(value: string) {
     this.set("id", Value.fromString(value));
   }
+
+  get operator(): string {
+    let value = this.get("operator");
+    return value.toString();
+  }
+
+  set operator(value: string) {
+    this.set("operator", Value.fromString(value));
+  }
+
+  get gasUsed(): BigInt {
+    let value = this.get("gasUsed");
+    return value.toBigInt();
+  }
+
+  set gasUsed(value: BigInt) {
+    this.set("gasUsed", Value.fromBigInt(value));
+  }
+
+  get gasPrice(): BigInt {
+    let value = this.get("gasPrice");
+    return value.toBigInt();
+  }
+
+  set gasPrice(value: BigInt) {
+    this.set("gasPrice", Value.fromBigInt(value));
+  }
+
+  get gasFee(): BigInt {
+    let value = this.get("gasFee");
+    return value.toBigInt();
+  }
+
+  set gasFee(value: BigInt) {
+    this.set("gasFee", Value.fromBigInt(value));
+  }
+
+  get blockHeight(): BigInt {
+    let value = this.get("blockHeight");
+    return value.toBigInt();
+  }
+
+  set blockHeight(value: BigInt) {
+    this.set("blockHeight", Value.fromBigInt(value));
+  }
+
+  get blockTimestamp(): BigInt {
+    let value = this.get("blockTimestamp");
+    return value.toBigInt();
+  }
+
+  set blockTimestamp(value: BigInt) {
+    this.set("blockTimestamp", Value.fromBigInt(value));
+  }
+
+  get blockHash(): string {
+    let value = this.get("blockHash");
+    return value.toString();
+  }
+
+  set blockHash(value: string) {
+    this.set("blockHash", Value.fromString(value));
+  }
+
+  get blockIdx(): BigInt {
+    let value = this.get("blockIdx");
+    return value.toBigInt();
+  }
+
+  set blockIdx(value: BigInt) {
+    this.set("blockIdx", Value.fromBigInt(value));
+  }
+
+  get merkleRoot(): Bytes {
+    let value = this.get("merkleRoot");
+    return value.toBytes();
+  }
+
+  set merkleRoot(value: Bytes) {
+    this.set("merkleRoot", Value.fromBytes(value));
+  }
+
+  get publicDataHash(): Bytes {
+    let value = this.get("publicDataHash");
+    return value.toBytes();
+  }
+
+  set publicDataHash(value: Bytes) {
+    this.set("publicDataHash", Value.fromBytes(value));
+  }
 }
 
 export class User extends Entity {

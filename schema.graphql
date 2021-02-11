@@ -8,6 +8,16 @@ type Token @entity {
 
 type Block @entity {
   id:ID!
+  operator:String!
+  gasUsed: BigInt!
+  gasPrice: BigInt!
+  gasFee: BigInt!
+  blockHeight: BigInt!
+  blockTimestamp: BigInt!
+  blockHash: String!
+  blockIdx: BigInt!
+  merkleRoot: Bytes!
+  publicDataHash: Bytes!
 }
 
 type User @entity {
