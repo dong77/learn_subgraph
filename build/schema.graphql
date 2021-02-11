@@ -1,7 +1,0 @@
-type Token @entity {
-  id: ID!
-  address: String!
-  symbol: String!
-  name: String!
-  decimals: Int!
-}
