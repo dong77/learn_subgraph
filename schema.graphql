@@ -16,7 +16,7 @@ type Block @entity {
   blockHeight: BigInt!
   blockTimestamp: BigInt!
   blockHash: String!
-  blockIdx: BigInt!
+  blockIdx: Int!
   merkleRoot: Bytes!
   publicDataHash: Bytes!
 }

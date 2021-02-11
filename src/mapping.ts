@@ -62,13 +62,10 @@ export function handleBlockSubmitted(event: BlockSubmitted):void {
   block.blockTimestamp = event.block.timestamp
   block.blockHash = event.block.hash.toHex()
 
-  block.blockIdx = event.params.blockIdx
+  block.blockIdx = event.params.blockIdx.toI32()
   block.merkleRoot = event.params.merkleRoot
   block.publicDataHash = event.params.publicDataHash
   block.save()
-
-
-
 
 }
 

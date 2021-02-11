@@ -181,13 +181,13 @@ export class Block extends Entity {
     this.set("blockHash", Value.fromString(value));
   }
 
-  get blockIdx(): BigInt {
+  get blockIdx(): i32 {
     let value = this.get("blockIdx");
-    return value.toBigInt();
+    return value.toI32();
   }
 
-  set blockIdx(value: BigInt) {
-    this.set("blockIdx", Value.fromBigInt(value));
+  set blockIdx(value: i32) {
+    this.set("blockIdx", Value.fromI32(value));
   }
 
   get merkleRoot(): Bytes {
