@@ -1,6 +1,6 @@
-import { TokenRegistered } from '../generated/ExchangeV3/ExchangeV3'
+import { TokenRegistered, BlockSubmitted} from '../generated/ExchangeV3/ExchangeV3'
 import { ERC20 } from '../generated/ExchangeV3/ERC20'
-import { Token } from '../generated/schema'
+import { Token, Block } from '../generated/schema'
 import { BigInt } from '@graphprotocol/graph-ts'
 
 const ZeroAddr = '0x0000000000000000000000000000000000000000'
@@ -8,6 +8,8 @@ const ZeroAddr = '0x0000000000000000000000000000000000000000'
 function i32ToString(value:i32):string {
   return BigInt.fromI32(value).toString();
 }
+
+const zeroPad = (str:string, places:i32):string => str.padStart(places, '0')
 
 export function handleTokenRegistered(event: TokenRegistered): void {
   let id = event.params.tokenId
@@ -42,7 +44,15 @@ export function handleTokenRegistered(event: TokenRegistered): void {
     token.decimals = callDecimalsResult.reverted ? 18 : callDecimalsResult.value
   }
 
-  token.save()
+  // token.save()
+}
+
+
+export function handleBlockSubmitted(event: BlockSubmitted):void {
+  let id = event.params.blockIdx
+  let idStr = zeroPad(id.toString(), 10)
+  let block = new Block(idStr)
+  block.save()
 }
 
 // export function handleUpdatedGravatar(event: UpdatedGravatar): void {

@@ -5,3 +5,33 @@ type Token @entity {
   name: String!
   decimals: Int!
 }
+
+type Block @entity {
+  id:ID!
+}
+
+type User @entity {
+  id: ID!
+  address: String!
+}
+
+type TokenBalance @entity {
+  id: ID!
+  user: User!
+  token: Token!
+  amount: BigInt!
+}
+
+
+enum TransactionType {
+  Transfer
+  Trade
+}
+
+type Transaction @entity {
+  id: ID!
+  type: TransactionType!
+
+  a:String
+  b:String
+}
