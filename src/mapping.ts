@@ -26,11 +26,20 @@ export function handleTokenRegistered(event: TokenRegistered): void {
     token.name = "Maker"
     token.decimals =  18
   } else {
-    token.address = event.params.token.toHex()
     let erc20 = ERC20.bind(event.params.token)
-    token.symbol = erc20.symbol() || token.address.slice(0, 8)
-    token.name = erc20.name() || token.symbol
-    token.decimals = erc20.decimals() || 18
+
+    token.address = event.params.token.toHex()
+
+    let addressSlice = token.address.substr(2, 8)
+
+    let callSymbolResult = erc20.try_symbol()
+    token.name = callSymbolResult.reverted ? addressSlice : callSymbolResult.value
+
+    let callNameResult = erc20.try_name()
+    token.name = callNameResult.reverted ? addressSlice : callNameResult.value
+
+    let callDecimalsResult = erc20.try_decimals()
+    token.decimals = callDecimalsResult.reverted ? 18 : callDecimalsResult.value
   }
 
   token.save()
