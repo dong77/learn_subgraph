@@ -12,6 +12,7 @@ type Block @entity {
   gasUsed: BigInt!
   gasPrice: BigInt!
   gasFee: BigInt!
+  callDataSize: Int!
   blockHeight: BigInt!
   blockTimestamp: BigInt!
   blockHash: String!

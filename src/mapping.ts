@@ -56,6 +56,7 @@ export function handleBlockSubmitted(event: BlockSubmitted):void {
   block.gasPrice = event.transaction.gasPrice
   block.gasUsed = event.transaction.gasUsed
   block.gasFee = block.gasPrice * block.gasUsed
+  block.callDataSize = event.transaction.input.byteLength
 
   block.blockHeight = event.block.number
   block.blockTimestamp = event.block.timestamp
@@ -65,6 +66,10 @@ export function handleBlockSubmitted(event: BlockSubmitted):void {
   block.merkleRoot = event.params.merkleRoot
   block.publicDataHash = event.params.publicDataHash
   block.save()
+
+
+
+
 }
 
 // export function handleUpdatedGravatar(event: UpdatedGravatar): void {

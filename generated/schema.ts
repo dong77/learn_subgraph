@@ -145,6 +145,15 @@ export class Block extends Entity {
     this.set("gasFee", Value.fromBigInt(value));
   }
 
+  get callDataSize(): i32 {
+    let value = this.get("callDataSize");
+    return value.toI32();
+  }
+
+  set callDataSize(value: i32) {
+    this.set("callDataSize", Value.fromI32(value));
+  }
+
   get blockHeight(): BigInt {
     let value = this.get("blockHeight");
     return value.toBigInt();
