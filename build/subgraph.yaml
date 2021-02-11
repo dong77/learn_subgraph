@@ -18,6 +18,8 @@ dataSources:
       entities:
         - Token
       abis:
+        - name: ERC20
+          file: ExchangeV3/abis/ERC20.json
         - name: ExchangeV3
           file: ExchangeV3/abis/ExchangeV3.json
       eventHandlers:
